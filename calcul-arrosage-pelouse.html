@@ -1,0 +1,30 @@
+<form>
+  <label for="surface">Superficie de la pelouse (en m²) :</label>
+  <input type="number" id="surface" name="surface"><br><br>
+
+  <label for="besoins">Besoin en eau par m² (en litres) :</label>
+  <input type="number" id="besoins" name="besoins"><br><br>
+
+  <label for="freq">Fréquence d'arrosage (en jours) :</label>
+  <input type="number" id="freq" name="freq"><br><br>
+
+  <label for="semaines">Nombre de semaines :</label>
+  <input type="number" id="semaines" name="semaines"><br><br>
+
+  <input type="button" onclick="calculer()" value="Calculer">
+</form>
+
+<p id="resultat"></p>
+
+<script>
+function calculer() {
+  var surface = parseInt(document.getElementById("surface").value);
+  var besoins = parseInt(document.getElementById("besoins").value);
+  var freq = parseInt(document.getElementById("freq").value);
+  var semaines = parseInt(document.getElementById("semaines").value);
+
+  var total = surface * besoins * freq * semaines;
+
+  document.getElementById("resultat").innerHTML = "La quantité d'eau nécessaire est de " + total + " litres.";
+}
+</script>
